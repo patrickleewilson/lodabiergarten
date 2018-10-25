@@ -1,6 +1,7 @@
 package com.lodabiergarten.lodabiergarten;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         BackgroundWorker backgroundworker = new BackgroundWorker(this); //takes the context from backgroundworker.java
         backgroundworker.execute(type,user_name, pass_word);
+        startActivity(new Intent(getApplication(),HomePage.class));
 
         }
     }
