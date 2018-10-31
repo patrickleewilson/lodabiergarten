@@ -21,9 +21,11 @@
         <activity android:name=".SecondActivity" />
         <activity
             android:name=".HomePage"
-            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_home_page"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ManageAccountActivity"
+            android:label="@string/title_activity_manage_account"></activity>
     </application>
 
 </manifest>
