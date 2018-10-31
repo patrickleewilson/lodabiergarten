@@ -1,6 +1,7 @@
 package com.lodabiergarten.lodabiergarten;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -41,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         backgroundworker.execute(type,user_name, pass_word);
 
         }
+
+    public void OpenSignup(View view) {
+        startActivity(new Intent(this, SecondActivity.class));
+    }
     }
 
 
