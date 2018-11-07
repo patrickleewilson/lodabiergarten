@@ -83,6 +83,7 @@ public class HomePage extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_beers) {
+            startActivity(new Intent(getApplication(),BeerList.class));
             // Handle the camera action
         } else if (id == R.id.nav_reviews) {
 
