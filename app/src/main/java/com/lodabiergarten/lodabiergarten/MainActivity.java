@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     public void OpenSignup(View view) {
-        startActivity(new Intent(this, SecondActivity.class));
+        startActivity(new Intent(this, JsonView.class));
     }
     }
 
