@@ -43,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(getApplication(),HomePage.class));
 
         }
+        //change json view to "secondActivity.class"
+
+    public void OpenSignup(View view) {
+        startActivity(new Intent(this, JsonView.class));
+    }
     }
 
 

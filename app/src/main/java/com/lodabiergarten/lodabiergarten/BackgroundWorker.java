@@ -29,7 +29,8 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... params) {
         String type = params[0];
-        String login_url = "http://10.20.122.88/login.php"; //standard ip to comm with local host (Check ipconfig)
+        String login_url = "http://192.168.50.1/login.php"; //standard ip to comm with local host (Check ipconfig)
+        String signup_url = "http://192.168.50.1/signup.php";
         if(type.equals("login")) {
             try {
                 String user_name = params[1];
@@ -43,6 +44,51 @@ public class BackgroundWorker extends AsyncTask<String, Void, String> {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
                 String post_data = URLEncoder.encode("user_name", "UTF-8")+"="+URLEncoder.encode(user_name, "UTF-8")+"&"
                         +URLEncoder.encode("pass_word", "UTF-8")+"="+URLEncoder.encode(pass_word, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String result = "";
+                String line = "";
+
+                while ((line = bufferedReader.readLine()) != null) {
+                    result += line;
+                    return result;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+            }
+            catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if(type.equals("signup")) {
+            try {
+                String user_name = params[1];
+                String pass_word = params[2];
+                String fname = params[3];
+                String lname = params[4];
+                String age = params[5];
+                String zipcode = params[6];
+                URL url = new URL(signup_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream =  httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("username", "UTF-8")+"="+URLEncoder.encode(user_name, "UTF-8")+"&"
+                +URLEncoder.encode("password", "UTF-8")+"="+URLEncoder.encode(pass_word, "UTF-8")+"&"
+                +URLEncoder.encode("fname", "UTF-8")+"="+URLEncoder.encode(fname, "UTF-8")+"&"
+                +URLEncoder.encode("lname", "UTF-8")+"="+URLEncoder.encode(lname, "UTF-8") + "&"
+                +URLEncoder.encode("age", "UTF-8")+"="+URLEncoder.encode(age, "UTF-8") + "&"
+                +URLEncoder.encode("zipcode", "UTF-8")+"="+URLEncoder.encode(zipcode, "UTF-8");
+
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 outputStream.close();

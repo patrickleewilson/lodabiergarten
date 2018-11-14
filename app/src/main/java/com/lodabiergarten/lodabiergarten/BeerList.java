@@ -6,21 +6,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebSettings;
-import java.io.IOException;
-import br.com.thiagomoreira.untappd.Untappd;
-import br.com.thiagomoreira.untappd.model.Brewery;
-import retrofit2.http.GET;
-import retrofit2.http.Path;
-import graphql.ExecutionResult;
-import graphql.GraphQL;
-import graphql.schema.GraphQLSchema;
-import graphql.schema.StaticDataFetcher;
-import graphql.schema.idl.RuntimeWiring;
-import graphql.schema.idl.SchemaGenerator;
-import graphql.schema.idl.SchemaParser;
-import graphql.schema.idl.TypeDefinitionRegistry;
 
 
 
@@ -32,7 +17,8 @@ public class BeerList extends AppCompatActivity {
         setContentView(R.layout.activity_beer_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+      //  JsonView list = new JsonView();
+        //list.jsonParse();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
