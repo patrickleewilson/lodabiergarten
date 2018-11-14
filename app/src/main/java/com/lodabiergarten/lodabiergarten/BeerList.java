@@ -13,6 +13,14 @@ import br.com.thiagomoreira.untappd.Untappd;
 import br.com.thiagomoreira.untappd.model.Brewery;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import graphql.ExecutionResult;
+import graphql.GraphQL;
+import graphql.schema.GraphQLSchema;
+import graphql.schema.StaticDataFetcher;
+import graphql.schema.idl.RuntimeWiring;
+import graphql.schema.idl.SchemaGenerator;
+import graphql.schema.idl.SchemaParser;
+import graphql.schema.idl.TypeDefinitionRegistry;
 
 
 
@@ -60,6 +68,7 @@ public class BeerList extends AppCompatActivity {
 //
 //        System.out.println(brewery.getBreweryName());
 //        System.out.println(brewery.getBeerCount());
+
     }
     }
 
