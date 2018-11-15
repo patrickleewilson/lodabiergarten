@@ -1,10 +1,12 @@
 package com.lodabiergarten.lodabiergarten;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -12,6 +14,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -51,6 +54,7 @@ public class JsonView extends AppCompatActivity {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                //RelativeLayout layout = (RelativeLayout)findViewById(R.id.beerLayout);
 
                 try {
                     JSONObject jsonObject1 = response.getJSONObject("menu");
@@ -59,15 +63,34 @@ public class JsonView extends AppCompatActivity {
                   //  JSONArray jsonArray = response.getJSONArray("custom_menus");
 
                     for (int i = 0; i < jsonArray1.length(); i++) {
-                        JSONObject employee = jsonArray1.getJSONObject(i);
+                        JSONObject beer = jsonArray1.getJSONObject(i);
 
-                        JSONArray jArray = employee.getJSONArray("items");
+                        JSONArray jArray = beer.getJSONArray("items");
                         for (int j = 0; j < jArray.length(); j++)
                         {
+                            final ImageView mImageView = new ImageView(JsonView.this);
+                            mImageView.setLayoutParams(new android.view.ViewGroup.LayoutParams(80,60));
+                            mImageView.setMaxHeight(20);
+                            mImageView.setMaxWidth(20);
                             JSONObject jOBJNEW = jArray.getJSONObject(j);
+                            String beerName = jOBJNEW.getString("name");
+                            String ibu = jOBJNEW.getString("ibu");
+                            String imageUrl = jOBJNEW.getString("label_image");
 
-                            String firstName = jOBJNEW.getString("name");
-                            mTextViewResult.append(firstName + "\n");
+                            ImageRequest request = new ImageRequest(imageUrl,
+                                    new Response.Listener<Bitmap>() {
+                                        @Override
+                                        public void onResponse(Bitmap bitmap) {
+                                            mImageView.setImageBitmap(bitmap);
+                                        }
+                                    }, 0, 0, null,
+                                    new Response.ErrorListener() {
+                                        public void onErrorResponse(VolleyError error) {
+                                            System.out.println(error);
+                                        }
+                                    });
+
+                            mTextViewResult.append(beerName + " " + ibu +  " " + imageUrl + "\n");
 
                         }
 
