@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.view.View;
 
+import com.lodabiergarten.lodabiergarten.activities.BeerList;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText Password;
     private Button Login;
     private Button Signup;
+    private Button List;
     //LOGIN VARIABLES DECLARED
 
 
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Password = (EditText) findViewById(R.id.etPassword);
         Login = (Button) findViewById(R.id.btnLogin);
         Signup = (Button) findViewById(R.id.btnSignup);
+        List = (Button) findViewById(R.id.btnList);
         //LOGIN CASTS
     }
     public void OnLogin(View view) {
@@ -44,7 +48,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
     public void OpenSignup(View view) {
-        startActivity(new Intent(this, JsonView.class));
+        startActivity(new Intent(this, SecondActivity.class));
+    }
+
+    public void OpenList(View view) {
+        startActivity(new Intent(this, BeerList.class));
     }
     }
 

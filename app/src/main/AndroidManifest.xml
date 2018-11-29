@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
-        <activity android:name=".JsonView"></activity>
+        <activity android:name=".JsonView" />
+        <activity android:name=".activities.BeerList"></activity>
     </application>
 
 </manifest>

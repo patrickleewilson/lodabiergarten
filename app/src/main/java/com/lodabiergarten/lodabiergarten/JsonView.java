@@ -67,14 +67,14 @@ public class JsonView extends AppCompatActivity {
                             JSONObject jOBJNEW = jArray.getJSONObject(j);
 
                             String firstName = jOBJNEW.getString("name");
-                            mTextViewResult.append(firstName + "\n");
+                            String label_image = jOBJNEW.getString("label_image");
+                            String rating = jOBJNEW.getString("rating");
+                            mTextViewResult.append(firstName + "\n" + label_image + "\n" + rating);
 
                         }
 
 
-                   //     String firstName = employee.getString("name");
 
-                   //     mTextViewResult.append(firstName + "\n");
 
                     }
 
