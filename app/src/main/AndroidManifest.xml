@@ -27,6 +27,7 @@
             android:name=".ManageAccountActivity"
             android:label="@string/title_activity_manage_account" />
         <activity android:name=".JsonView"></activity>
+        <activity android:name=".activities.BeerList"></activity>
     </application>
 
 </manifest>

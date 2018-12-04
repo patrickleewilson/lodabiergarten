@@ -59,10 +59,7 @@ public class JsonView extends AppCompatActivity {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-<<<<<<< HEAD
                 //RelativeLayout layout = (RelativeLayout)findViewById(R.id.beerLayout);
-=======
->>>>>>> patricks_branch
 
                 try {
                     JSONObject jsonObject1 = response.getJSONObject("menu");
@@ -86,13 +83,11 @@ public class JsonView extends AppCompatActivity {
                         }
 
 
-<<<<<<< HEAD
+
                    //     String firstName = employee.getString("name");
 
                    //     mTextViewResult.append(firstName + "\n");
-=======
 
->>>>>>> patricks_branch
 
                     }
 
