@@ -7,6 +7,11 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Base64;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -48,13 +53,16 @@ public class JsonView extends AppCompatActivity {
     }
 
 
-    public void jsonParse() {
+    private void jsonParse() {
 
         String url = "https://business.untappd.com/api/v1/menus/1361?full=true";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+<<<<<<< HEAD
                 //RelativeLayout layout = (RelativeLayout)findViewById(R.id.beerLayout);
+=======
+>>>>>>> patricks_branch
 
                 try {
                     JSONObject jsonObject1 = response.getJSONObject("menu");
@@ -63,41 +71,28 @@ public class JsonView extends AppCompatActivity {
                   //  JSONArray jsonArray = response.getJSONArray("custom_menus");
 
                     for (int i = 0; i < jsonArray1.length(); i++) {
-                        JSONObject beer = jsonArray1.getJSONObject(i);
+                        JSONObject employee = jsonArray1.getJSONObject(i);
 
-                        JSONArray jArray = beer.getJSONArray("items");
+                        JSONArray jArray = employee.getJSONArray("items");
                         for (int j = 0; j < jArray.length(); j++)
                         {
-                            final ImageView mImageView = new ImageView(JsonView.this);
-                            mImageView.setLayoutParams(new android.view.ViewGroup.LayoutParams(80,60));
-                            mImageView.setMaxHeight(20);
-                            mImageView.setMaxWidth(20);
                             JSONObject jOBJNEW = jArray.getJSONObject(j);
-                            String beerName = jOBJNEW.getString("name");
-                            String ibu = jOBJNEW.getString("ibu");
-                            String imageUrl = jOBJNEW.getString("label_image");
 
-                            ImageRequest request = new ImageRequest(imageUrl,
-                                    new Response.Listener<Bitmap>() {
-                                        @Override
-                                        public void onResponse(Bitmap bitmap) {
-                                            mImageView.setImageBitmap(bitmap);
-                                        }
-                                    }, 0, 0, null,
-                                    new Response.ErrorListener() {
-                                        public void onErrorResponse(VolleyError error) {
-                                            System.out.println(error);
-                                        }
-                                    });
-
-                            mTextViewResult.append(beerName + " " + ibu +  " " + imageUrl + "\n");
+                            String firstName = jOBJNEW.getString("name");
+                            String label_image = jOBJNEW.getString("label_image");
+                            String rating = jOBJNEW.getString("rating");
+                            mTextViewResult.append(firstName + "\n" + label_image + "\n" + rating);
 
                         }
 
 
+<<<<<<< HEAD
                    //     String firstName = employee.getString("name");
 
                    //     mTextViewResult.append(firstName + "\n");
+=======
+
+>>>>>>> patricks_branch
 
                     }
 

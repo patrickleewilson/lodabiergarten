@@ -38,3 +38,15 @@
         layout="@layout/content_beer_list" />
 
 </android.support.design.widget.CoordinatorLayout>
+    tools:context=".activities.BeerList">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerviewid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+
+        android:layout_marginRight="16dp"></android.support.v7.widget.RecyclerView>
+</LinearLayout>
