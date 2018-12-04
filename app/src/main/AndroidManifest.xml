@@ -26,10 +26,6 @@
         <activity
             android:name=".ManageAccountActivity"
             android:label="@string/title_activity_manage_account" />
-        <activity
-            android:name=".BeerList"
-            android:label="@string/title_activity_beer_list"
-            android:theme="@style/AppTheme"></activity>
         <activity android:name=".JsonView"></activity>
     </application>
 
