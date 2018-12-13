@@ -52,6 +52,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.beer_name.setText(mData.get(position).getBeerName());
         holder.beer_rate.setText(mData.get(position).getRating());
+        holder.beer_desc.setText(mData.get(position).getDescription());
 
 
         // load image from the internet using Glide
@@ -66,7 +67,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView beer_name, beer_rate;
+        TextView beer_name, beer_rate, beer_desc;
         ImageView beerThumbnail;
 
 
@@ -75,6 +76,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             beer_name = itemView.findViewById(R.id.rowname);
             beer_rate = itemView.findViewById(R.id.rating);
             beerThumbnail = itemView.findViewById(R.id.thumbnail);
+            beer_desc = itemView.findViewById(R.id.description);
         }
     }
 }

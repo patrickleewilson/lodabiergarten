@@ -74,9 +74,10 @@ public class BeerList extends AppCompatActivity {
                             JSONObject jOBJNEW = jArray.getJSONObject(j);
 
                             String beer_name = jOBJNEW.getString("name");
-                            String beer_rating = jOBJNEW.getString("rating");
+                            String beer_rating = jOBJNEW.getString("rating").substring(0, 4)
+                                    + "/5";
                             String beer_image = jOBJNEW.getString("label_image");
-                            String beer_description = jOBJNEW.getString("description");
+                            String beer_description = jOBJNEW.getString("original_description");
                      //       beer.setBeerName(jOBJNEW.getString("name"));
                      //       beer.setRating(jOBJNEW.getString("rating"));
 
